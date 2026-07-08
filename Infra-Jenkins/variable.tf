@@ -9,4 +9,8 @@ variable "instance_type" {
     type        = string
     default     = "t2.micro"
 }
-
+variable "AWS_REGION" {
+    description = "AWS region to deploy the resources"
+    type        = string
+    default     = "us-east-1"
+}

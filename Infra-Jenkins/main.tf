@@ -1,9 +1,11 @@
-module "Dev_Jenkins" {
-  source = "./Infra-Jenkins/Environment/Development"
-
 provider "aws" {
     region = var.AWS_REGION
 }
+
+module "Dev_Jenkins" {
+  source = "./Infra-Jenkins"
+
+
 
 resource "aws_instance" "jenkins_ec2_instance" {
   ami           = var.ami_id
@@ -17,7 +19,7 @@ resource "aws_instance" "jenkins_ec2_instance" {
     environment = var.vpc_environment
   }
 
-user_data = file("Jenkins.sh")
+user_data = file("${path.module}/Jenkins.sh")
 }
 
 resource "aws_key_pair" "jenkins_key_pair" {
