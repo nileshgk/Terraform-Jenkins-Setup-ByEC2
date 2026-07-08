@@ -2,11 +2,6 @@ provider "aws" {
     region = var.AWS_REGION
 }
 
-module "Dev_Jenkins" {
-  source = "./Infra-Jenkins"
-
-
-
 resource "aws_instance" "jenkins_ec2_instance" {
   ami           = var.ami_id
   instance_type = var.instance_type
@@ -26,5 +21,5 @@ resource "aws_key_pair" "jenkins_key_pair" {
   key_name   = var.key_name
   public_key = file(var.public_key_path)
 }
-}
+
 

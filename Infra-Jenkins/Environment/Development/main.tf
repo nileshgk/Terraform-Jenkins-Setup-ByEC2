@@ -1,5 +1,5 @@
 module "Dev_Jenkins" {
-  source = "/../../Environment"
+  source = "/../.."
 
   vpcname = "Dev_Jenkins"
   cidr = "10.0.0.0/16"
@@ -13,6 +13,5 @@ module "Dev_Jenkins" {
   cidr_pub_subnet2 = "10.0.1.0/24"
   availability_zone1 = "us-east-1a"
   availability_zone2 = "us-east-1b"
-  public_key_path = "~/.ssh/Jenkins.pub"
-
+  public_key_path      = "C:/Users/Nilesh/.ssh/Jenkins.pub"
 }
