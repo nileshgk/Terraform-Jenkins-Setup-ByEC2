@@ -16,6 +16,8 @@ resource "aws_instance" "jenkins_ec2_instance" {
     Name        = "${var.vpcname}-ec2"
     environment = var.vpc_environment
   }
+
+user_data = file("Jenkins.sh")
 }
 
 resource "aws_key_pair" "jenkins_key_pair" {
@@ -23,3 +25,4 @@ resource "aws_key_pair" "jenkins_key_pair" {
   public_key = file(var.public_key_path)
 }
 }
+

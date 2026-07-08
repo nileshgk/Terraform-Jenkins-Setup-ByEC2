@@ -1,0 +1,18 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform/
+# .tfstate files
+*.tfstate
+*.tfstate.*
+.my_local_key
+*.my_local_key
+.my_local_key.pub
+*.my_local_key.pub
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Ignore any .tfvars files that are generated automatically
+*.tfvars.json
+*.tfvars
