@@ -6,14 +6,10 @@
 *.tfstate.*
 
 #public key files
-.Jenkins
-*.Jenkins
-/keys/Jenkins
-*.jenkins
-.Jenkins.pub
-*.Jenkins.pub
-./keys/Jenkins.pub
-*.Jenkins.pub
+keys/Jenkins
+keys/Jenkins.pub
+*.pem
+*.pub
 
 # Crash log files
 crash.log
