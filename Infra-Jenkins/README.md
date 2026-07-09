@@ -5,12 +5,15 @@ Before running terraform apply, you must generate an SSH key pair to secure your
 
 Generate keys:
 Bash
-ssh-keygen -t rsa -b 2048 -f my_local_key
+ssh-keygen -t rsa -b 2048 -f keys/Jenkins
 (Press Enter twice to leave the passphrase empty).
 
-Security: * my_local_key (Private) - KEEP PRIVATE. Never commit this to Git.
+Security: * Jenkins (Private) - KEEP PRIVATE. Never commit this to Git.
 
-my_local_key.pub (Public) - Used by Terraform to authorize your access.
+Jenkins.pub (Public) - Used by Terraform to authorize your access.
+
+SSH into instance
+ssh -i .\keys\Jenkins ec2-user@<EC2_PUBLIC_IP>
 
 🚀 Usage
 Configure AWS credentials: aws configure

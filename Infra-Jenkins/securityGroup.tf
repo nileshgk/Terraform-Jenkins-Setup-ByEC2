@@ -1,8 +1,8 @@
-# AWS Security Group for Jenkins EC2 instance
-resource "aws_security_group" "jenkins_sg" {
+# AWS Security Group for Jenkins VPC
+resource "aws_security_group" "vpc_jenkins_sg" {
   name        = "${var.vpcname}-sg"
   description = "Security group for Jenkins EC2 instance"
-  vpc_id      = aws_vpc.aws_vpc_jenkins.id
+  vpc_id      = aws_vpc.jenkins_vpc.id
 
   ingress {
     from_port   = 8080
@@ -16,15 +16,10 @@ resource "aws_security_group" "jenkins_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-    tags = {
-        Name = "${var.vpcname}-sg"
-        environment = var.vpc_environment
-    }
 }
