@@ -18,3 +18,5 @@ crash.*.log
 # Ignore any .tfvars files that are generated automatically
 *.tfvars.json
 *.tfvars
+
+Add-Content .gitignore "`nterraform.tfstate`n.terraform.lock.hcl`n.terraform/"
