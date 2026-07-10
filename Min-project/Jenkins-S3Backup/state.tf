@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "nk-jenkins-backup-bucket-2026" # Replace with your unique state bucket name
+    bucket         = "nk-jenkins-backup-bucket-11072026" # Replace with your unique state bucket name
     key            = "jenkins-infrastructure/terraform.tfstate"
     region         = "us-east-1" # Must match your infrastructure region
     encrypt        = true
-    dynamodb_table = "terraform-state-locks" # Enables state locking to prevent conflicts
+    use_lockfile   = true
   }
 }

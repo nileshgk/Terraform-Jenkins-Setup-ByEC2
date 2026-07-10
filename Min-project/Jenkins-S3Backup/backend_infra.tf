@@ -1,6 +1,6 @@
 # 1. S3 Bucket for Remote State Storage
 resource "aws_s3_bucket" "terraform_state" {
-  bucket        = "nk-jenkins-backup-bucket-2026"
+  bucket        = "nk-jenkins-backup-bucket-11072026"
   force_destroy = false
 
   tags = {

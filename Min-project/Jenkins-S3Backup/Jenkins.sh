@@ -119,7 +119,7 @@ set -eo pipefail
 # Configuration Environment variables
 JENKINS_HOME="/var/lib/jenkins"
 BACKUP_DIR="/tmp/jenkins_backups"
-S3_BUCKET="s3://nk-jenkins-data-backup-bucket-2026"
+S3_BUCKET="s3://nk-jenkins-data-backup-bucket-11072026"
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 BACKUP_NAME="jenkins_backup_$TIMESTAMP.tar.gz"
 

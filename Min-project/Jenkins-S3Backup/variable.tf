@@ -91,6 +91,6 @@ variable "availability_zone2" {
 variable "bucket_name" {
   type        = string
   description = "The globally unique name for the S3 backup bucket."
-  default     = "nk-jenkins-data-backup-bucket-2026"
+  default     = "nk-jenkins-data-backup-bucket-11072026"
 }
 
