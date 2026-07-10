@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define your Docker Image Name
+        DOCKER_IMAGE = "vote-app:latest"
+        CONTAINER_NAME = "vote-app-container"
+    }
+
+    // Optional: This replicates Phase 3's trigger so it runs daily at midnight automatically, 
+    // or whenever you manually click "Build Now" after a code change.
+
+    triggers {
+        // 1. Listen for GitHub Webhook push events
+        githubPush() 
+        
+        // 2. Keep the guaranteed daily backup running at midnight
+        cron('H 0 * * *') 
+    }
+
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building the Vote Application Docker Image...'
+                // Builds the container using the Dockerfile provided above
+                sh "docker build -t ${DOCKER_IMAGE} ."
+            }
+        }
+
+        stage('Deploy Application') {
+            steps {
+                echo 'Deploying Vote Application Container...'
+                // Stop and remove the old container if it exists to avoid port conflicts
+                sh """
+                    docker stop ${CONTAINER_NAME} || true
+                    docker rm ${CONTAINER_NAME} || true
+                    docker run -d -p 5000:5000 --name ${CONTAINER_NAME} ${DOCKER_IMAGE}
+                """
+                echo 'Application live on port 5000!'
+            }
+        }
+
+        stage('Automated S3 Backup') {
+            steps {
+                echo 'Executing Scheduled System Backup to AWS S3...'
+                // This targets the backup bash script we placed on your server
+                sh '/usr/local/bin/jenkins_backup.sh'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment and S3 Backup completed perfectly!'
+        }
+        failure {
+            echo 'CRITICAL: Pipeline failed. Check the console logs for build or backup errors.'
+        }
+    }
+}

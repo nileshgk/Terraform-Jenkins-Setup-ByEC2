@@ -1,0 +1,20 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform/
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+#public key files
+keys/Jenkins
+keys/Jenkins.pub
+*.pem
+*.pub
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Ignore any .tfvars files that are generated automatically
+*.tfvars.json
+*.tfvars
