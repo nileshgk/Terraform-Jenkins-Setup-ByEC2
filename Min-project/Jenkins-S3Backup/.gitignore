@@ -4,8 +4,6 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
-*.terraform.lock.hcl
 
 #public key files
 keys/Jenkins
