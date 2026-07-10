@@ -7,9 +7,8 @@ pipeline {
         CONTAINER_NAME = "vote-app-container"
     }
 
-    // Optional: This replicates Phase 3's trigger so it runs daily at midnight automatically, 
+    // This replicates Phase 3's trigger so it runs daily at midnight automatically, 
     // or whenever you manually click "Build Now" after a code change.
-
     triggers {
         // 1. Listen for GitHub Webhook push events
         githubPush() 
@@ -18,6 +17,8 @@ pipeline {
         cron('H 0 * * *') 
     }
 
+    stages { // <--- Added master stages wrapper
+        
         stage('Build Docker Image') {
             steps {
                 echo 'Building the Vote Application Docker Image...'
@@ -46,7 +47,8 @@ pipeline {
                 sh '/usr/local/bin/jenkins_backup.sh'
             }
         }
-    }
+        
+    } // <--- Closes master stages wrapper
 
     post {
         success {
@@ -56,3 +58,4 @@ pipeline {
             echo 'CRITICAL: Pipeline failed. Check the console logs for build or backup errors.'
         }
     }
+}
