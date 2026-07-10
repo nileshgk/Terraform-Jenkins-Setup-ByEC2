@@ -1,25 +1,25 @@
 variable "region" {
-    description = "AWS region to deploy the resources"
-    type        = string
-    default     = "us-east-1"
+  description = "AWS region to deploy the resources"
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "key_name" {
-    description = "Key pair name for the Jenkins EC2 instance"
-    type        = string
-    default     = "Jenkins"
+  description = "Key pair name for the Jenkins EC2 instance"
+  type        = string
+  default     = "Jenkins"
 }
 
 variable "ami_id" {
-    description = "AMI ID for the Jenkins EC2 instance"
-    type        = string
-    default     = "ami-002192a70217ac181" # Example AMI ID, replace with a valid one 
+  description = "AMI ID for the Jenkins EC2 instance"
+  type        = string
+  default     = "ami-002192a70217ac181" # Example AMI ID, replace with a valid one 
 }
 
 variable "instance_type" {
-    description = "Instance type for the Jenkins EC2 instance"
-    type        = string
-    default     = "t3.micro"
+  description = "Instance type for the Jenkins EC2 instance"
+  type        = string
+  default     = "t3.micro"
 }
 
 variable "public_key_path" {
@@ -35,9 +35,9 @@ variable "vpcname" {
 }
 
 variable "vpc_environment" {
-    type        = string
-    description = "The environment for the VPC"
-    default     = "Development"
+  type        = string
+  description = "The environment for the VPC"
+  default     = "Development"
 }
 
 variable "cidr" {

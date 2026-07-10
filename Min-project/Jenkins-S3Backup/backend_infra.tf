@@ -4,8 +4,8 @@ resource "aws_s3_bucket" "terraform_state" {
   force_destroy = false
 
   tags = {
-    Name        = "Terraform State Storage"
-    ManagedBy   = "Terraform"
+    Name      = "Terraform State Storage"
+    ManagedBy = "Terraform"
   }
 }
 
@@ -50,7 +50,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
   }
 
   tags = {
-    Name        = "Terraform State Lock Table"
-    ManagedBy   = "Terraform"
+    Name      = "Terraform State Lock Table"
+    ManagedBy = "Terraform"
   }
 }

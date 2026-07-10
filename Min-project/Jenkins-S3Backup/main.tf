@@ -17,7 +17,15 @@ resource "aws_instance" "Jenkins_EC2" {
   subnet_id     = aws_subnet.jenkins_pub_subnet1.id
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.vpc_jenkins_sg.id]
-
+  
+  # Root block device configuration to increase volume to 20 GB
+  root_block_device {
+    volume_size           = 20    # Provision 20 GB of storage
+    volume_type           = "gp3" # High performance, cost-effective storage tier
+    encrypted             = true  # Ensures volume encryption at rest
+    delete_on_termination = true  # Automatically deletes the volume when the instance is torn down
+  }
+  
 user_data = file("${path.module}/Jenkins.sh")
 
   tags = {

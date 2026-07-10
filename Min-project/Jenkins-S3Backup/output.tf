@@ -8,27 +8,27 @@ output "jenkins_url" {
 
 }
 output "jenkins_instance_id" {
-  value = aws_instance.Jenkins_EC2.id
+  value       = aws_instance.Jenkins_EC2.id
   description = "The ID of the Jenkins EC2 instance"
 }
 
 output "vpc_id" {
-  value = aws_vpc.jenkins_vpc.id
+  value       = aws_vpc.jenkins_vpc.id
   description = "The ID of the VPC"
 }
 
 output "security_group_id" {
-  value = aws_security_group.vpc_jenkins_sg.id
+  value       = aws_security_group.vpc_jenkins_sg.id
   description = "The ID of the security group for the Jenkins EC2 instance"
 }
 
 output "public_subnet1_id" {
-  value = aws_subnet.jenkins_pub_subnet1.id
+  value       = aws_subnet.jenkins_pub_subnet1.id
   description = "The ID of the first public subnet"
 }
 
 output "public_subnet2_id" {
-  value = aws_subnet.jenkins_pub_subnet2.id
+  value       = aws_subnet.jenkins_pub_subnet2.id
   description = "The ID of the second public subnet"
 }
 
