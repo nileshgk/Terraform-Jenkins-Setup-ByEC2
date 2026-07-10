@@ -19,7 +19,7 @@ variable "ami_id" {
 variable "instance_type" {
   description = "Instance type for the Jenkins EC2 instance"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "public_key_path" {
