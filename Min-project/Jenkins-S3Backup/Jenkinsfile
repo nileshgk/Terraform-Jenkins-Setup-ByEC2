@@ -56,4 +56,3 @@ pipeline {
             echo 'CRITICAL: Pipeline failed. Check the console logs for build or backup errors.'
         }
     }
-}
